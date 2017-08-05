@@ -1,27 +1,50 @@
 $(document).ready(function(){
 
-    var inputOne = $('#inputOne').val();
-    var inputTwo = $('#inpuTwo').val();
-    var operator ='';
 
 console.log(inputOne);
 console.log(inputTwo);
 
 $('#add').on('click', function(){ 
-console.log('add clicked');
-
+operator = "+" ;
+makeObject();
 })//end of add
+
 $('#subtract').on('click', function(){ 
-console.log('add subtract');
+operator = "-";
+makeObject();
 })//end of subtract
+
 $('#multiply').on('click', function(){ 
-console.log('add multiply');
+operator = "*";
+makeObject();
 })//end of multiply
+
 $('#divide').on('click', function(){ 
-console.log('add divide');
+operator = "/";
+makeObject(); 
 })//end of divide
 
+function makeObject(){
+    var object = {
+inputOne: $('#inputOne').val(),
+inputTwo: $('#inputTwo').val(),
+operator: operator,
+}
+console.log(object);
+}//end of makeObject
 
 
+
+function sendRequest(){
+    $.ajax({
+        method: "post",
+        url: "/mathLogic",
+        data: {object},
+        success: function(response){
+            $('#answer').append('<p>'+ response +'</p>')
+        }//end of success
+
+    })//end of ajax
+};//end of sendRequest
 
 })//end of document.ready
