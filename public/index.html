@@ -1,15 +1,38 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="jquery.js"></script>
-        <script src="client.js"></script>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <h1>hello world</h1>
-    </body>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="vendors/jquery.js"></script>
+    <script src="client.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h1>Weekend Assingment 2 Calculator</h1>
+    <div id='calcBorder'>
+        <div id='clearButtonContainer'>
+            <button class='button' id='clearButton'>clear</button>
+        </div>
+        <div id='calcContainer'>
+            <input id="inputOne" type="number"></input>
+            <button class='button' id='add'>+</button>
+            <button class='button' id='subtract'>-</button>
+            <button class='button' id='divide'>/</button>
+            <button class='button' id='multiply'>*</button>
+            <input id="inputTwo" type="number"></input>
+
+        </div>
+        <!--end of calcContainer-->
+        <div id='answer'>
+        </div>
+        <!--end of answer-->
+    </div>
+    <!--end of calcBorder div-->
+
+</body>
+
 </html>
