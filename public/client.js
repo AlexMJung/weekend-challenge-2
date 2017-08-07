@@ -6,7 +6,7 @@ function data(op, a, b) {
 }
     $('#add').on('click', function () {
         var object = new data("+", $('#inputOne').val(), $('#inputTwo').val());
-        sendRequest();
+        sendRequest(object);
         console.log(object);
     })//end of add
 
@@ -49,11 +49,11 @@ function data(op, a, b) {
     })//end of clear code
 
 
-    function sendRequest() {
+    function sendRequest(req) {
         $.ajax({
             method: "post",
             url: "/mathLogic",
-            data: { data },
+            data: req,
             success: function (response) {
                 $('#answer').append('<p>' + response + '</p>')
             }//end of success

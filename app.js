@@ -10,15 +10,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post("/mathLogic", function (req, res) {
     console.log(req.body);
-    console.log(req.body.data.a);
-    console.log(req.body.data.b);
-    console.log(req.body.data.op);
+    console.log(req.body.a);
+    console.log(req.body.b);
+    console.log(req.body.op);
     
-    var answer = req.body.data.a + req.body.data.op + req.body.data.b;
+    var answer = req.body.a + req.body.op + req.body.b;
 
     console.log(answer);
     res.send(answer);
-    res.sendStatus(201);
+    // res.sendStatus(201);
 })//end of app.post
 
 app.get('/clear', function(req, res){
