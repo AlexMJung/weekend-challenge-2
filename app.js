@@ -22,7 +22,7 @@ app.post("/mathLogic", function (req, res) {
 })//end of app.post
 
 app.get('/clear', function(req, res){
-    res.send(cleared);
+    res.send("cleared");
     res.sendStatus(201);
 })//end of app.get
 

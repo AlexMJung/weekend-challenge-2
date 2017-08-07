@@ -11,33 +11,21 @@ function data(op, a, b) {
     })//end of add
 
     $('#subtract').on('click', function () {
-        makeObject = {
-            op: "-",
-            a: $('#inputOne').val(),
-            b: $('#inputTwo').val(),
-        }
-        sendRequest();
-        console.log(makeObject);
+         var object = new data("-", $('#inputOne').val(), $('#inputTwo').val());
+        sendRequest(object);
+        console.log(object);
     })//end of subtract
 
     $('#multiply').on('click', function () {
-        makeObject = {
-            op: "*",
-            a: $('#inputOne').val(),
-            b: $('#inputTwo').val(),
-        }
-        sendRequest();
-        console.log(makeObject);
+        var object = new data("*", $('#inputOne').val(), $('#inputTwo').val());
+        sendRequest(object);
+        console.log(object);    
     })//end of multiply
 
     $('#divide').on('click', function () {
-        makeObject = {
-            op: "/",
-            a: $('#inputOne').val(),
-            b: $('#inputTwo').val(),
-        }
-        sendRequest();
-        console.log(makeObject);
+        var object = new data("/", $('#inputOne').val(), $('#inputTwo').val());
+        sendRequest(object);
+        console.log(object);
     })//end of divide
 
     
@@ -65,7 +53,7 @@ function data(op, a, b) {
             method: "get",
             url: "/clear",
             success: function (response){
-            $('#answer').append('<p>' + response + '</p>')
+            $('#answer').empty()
             }//end of success
         })//end of ajax    
     };//end of sendClearRequest
