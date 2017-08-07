@@ -1,13 +1,13 @@
 $(document).ready(function () {
-
+function data(op, a, b) {
+    this.op = op;
+    this.a= a;
+    this.b= b;
+}
     $('#add').on('click', function () {
-        makeObject = {
-            op: "+",
-            a: $('#inputOne').val(),
-            b: $('#inputTwo').val(),
-        }
+        var object = new data("+", $('#inputOne').val(), $('#inputTwo').val());
         sendRequest();
-        console.log(makeObject);
+        console.log(object);
     })//end of add
 
     $('#subtract').on('click', function () {
@@ -40,26 +40,34 @@ $(document).ready(function () {
         console.log(makeObject);
     })//end of divide
 
+    
+    $('#clearButton').on('click', function () {
+        console.log('clear button clicked');
+        $('#inputOne').val(''),
+        $('#inputTwo').val(''),
+        sendClearRequest();        
+    })//end of clear code
 
-    console.log(makeObject);
 
     function sendRequest() {
         $.ajax({
             method: "post",
             url: "/mathLogic",
-            data: { makeObject },
+            data: { data },
             success: function (response) {
-                parseInt(response.x);
-                console.log(response.x);
-                parseInt(response.y);
-                console.log(response.y);
-                parseInt(response.z);
-                console.log(response.z);
-                var math = response.x + response.y + response.z;
-                console.log(math);
-                $('#answer').append('<p>' + math + '</p>')
+                $('#answer').append('<p>' + response + '</p>')
             }//end of success
         })//end of ajax
     };//end of sendRequest
+
+    function sendClearRequest(){
+        $.ajax({
+            method: "get",
+            url: "/clear",
+            success: function (response){
+            $('#answer').append('<p>' + response + '</p>')
+            }//end of success
+        })//end of ajax    
+    };//end of sendClearRequest
 
 })//end of document.ready
