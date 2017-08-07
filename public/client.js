@@ -43,10 +43,21 @@ function data(op, a, b) {
             url: "/mathLogic",
             data: req,
             success: function (response) {
-                $('#answer').append('<p>' + response + '</p>')
+                getAnswer();
             }//end of success
         })//end of ajax
     };//end of sendRequest
+
+function getAnswer(){
+    $.ajax({
+        method: "get",
+        url: "/mathLogic",
+        success: function (response) {
+                number = parseInt(response)
+                $('#answer').append('<p>' + number + '</p>')
+            }//end of success
+    })//end fo ajax
+}//end of getAnswer
 
     function sendClearRequest(){
         $.ajax({
